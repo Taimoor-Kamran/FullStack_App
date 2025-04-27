@@ -24,11 +24,12 @@ export const metadata: Metadata = {
   description:
     "Bookwise is a book borrowing university library management solutions",
 };
-
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${ibmPlexSans.className} antialiased`}>{bebasNeue.variable}</body>
+      <body className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 };
