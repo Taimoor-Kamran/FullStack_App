@@ -25,7 +25,8 @@ const BookOverview = ({
             <span className="font-semibold text-light-200">{genre}</span>
           </p>
           <div className="flex flex-row gap-1">
-            <Image src="/icons/star.svg" alt="star" width={22} height={22}></Image>
+            <Image src="/icons/star.svg" alt="star" width={22} height={22} />
+            <span>{rating}</span> {/* Display rating next to the star */}
           </div>
         </div>
       </div>
