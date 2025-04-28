@@ -29,6 +29,16 @@ const BookOverview = ({
             <span>{rating}</span> {/* Display rating next to the star */}
           </div>
         </div>
+
+        <div className="book-copies">
+          <p>
+            Total Books: <span>{total_copies}</span>
+          </p>
+          <p>
+            Available Books: <span>{available_copies}</span>
+          </p>
+        </div>
+        <p className="book-description">{description}</p>
       </div>
     </section>
   );
