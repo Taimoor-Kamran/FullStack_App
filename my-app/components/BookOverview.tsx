@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 const BookOverview = ({
   title,
@@ -39,6 +40,13 @@ const BookOverview = ({
           </p>
         </div>
         <p className="book-description">{description}</p>
+
+        <Button className="book-overiew_btn">
+          <Image src="/icons/book.svg" alt="book" width={20} height={20}>
+          <p className="font-bebas-neue text-xl text-dark-100"></p>
+          </Image>
+        </Button>
+
       </div>
     </section>
   );
