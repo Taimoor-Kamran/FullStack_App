@@ -38,7 +38,7 @@ const BookOverview = ({
             Category:{" "}
             <span className="font-semibold text-light-200">{genre}</span>
           </p>
-          <div className="flex flex-row gap-1"> 
+          <div className="flex flex-row gap-1">
             <Image src="/icons/star.svg" alt="star" width={22} height={22} />
             <span>{rating}</span>
           </div>
@@ -62,9 +62,15 @@ const BookOverview = ({
       </div>
 
       <div className="relative flex flex-1 justify-center">
-          <div className="relative">
-            <BookCover/>
-          </div>
+        <div className="relative">
+          <BookCover
+            variant="wide"
+            className="z-10"
+            coverColor={color}
+            coverImage={cover}
+          />
+          <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden"></div>
+        </div>
       </div>
     </section>
   );
