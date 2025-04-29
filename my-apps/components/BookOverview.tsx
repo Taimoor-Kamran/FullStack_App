@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
+import BookCover from "./BookCover";
 
 interface Book {
   title: string;
@@ -61,7 +62,9 @@ const BookOverview = ({
       </div>
 
       <div className="relative flex flex-1 justify-center">
-          <div className="relative"></div>
+          <div className="relative">
+            <BookCover/>
+          </div>
       </div>
     </section>
   );
