@@ -1,6 +1,18 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 
+interface Book {
+  title: string;
+  author: string;
+  genre: string;
+  rating: number;
+  total_copies: number;
+  available_copies: number;
+  description: string;
+  color: string;
+  cover: string;
+}
+
 const BookOverview = ({
   title,
   author,
@@ -22,12 +34,12 @@ const BookOverview = ({
             <span className="font-semibold text-light-200">{author}</span>
           </p>
           <p>
-            Category: {""}
+            Category:{" "}
             <span className="font-semibold text-light-200">{genre}</span>
           </p>
           <div className="flex flex-row gap-1">
             <Image src="/icons/star.svg" alt="star" width={22} height={22} />
-            <span>{rating}</span> {/* Display rating next to the star */}
+            <span>{rating}</span>
           </div>
         </div>
 
@@ -39,14 +51,13 @@ const BookOverview = ({
             Available Books: <span>{available_copies}</span>
           </p>
         </div>
+
         <p className="book-description">{description}</p>
 
-        <Button className="book-overiew_btn">
-          <Image src="/icons/book.svg" alt="book" width={20} height={20}>
-          <p className="font-bebas-neue text-xl text-dark-100"></p>
-          </Image>
+        <Button className="book-overview_btn">
+          <Image src="/icons/book.svg" alt="book" width={20} height={20} />
+          <p className="font-bebas-neue">Read Now</p>
         </Button>
-
       </div>
     </section>
   );
