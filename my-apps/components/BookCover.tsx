@@ -1,6 +1,6 @@
 import React from "react";
 
-type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide"
+type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide";
 
 const variantStyle: Record<BookCoverVariant, string> = {
   extraSmall: "book-cover_extra_small",
@@ -12,12 +12,17 @@ const variantStyle: Record<BookCoverVariant, string> = {
 
 interface Props {
   className?: string;
-  variant: BookCoverVariant;
+  variant?: BookCoverVariant;
   coverColor: string;
   coverUrl: string;
 }
 
-const BookCover = ({ className, variant, coverColor, coverUrl }: Props) => {
+const BookCover = ({
+  className,
+  variant = "regular",
+  coverColor = "#012B48",
+  coverUrl = "https://placehold.co/400x600.png",
+}: Props) => {
   return <div>BookCover</div>;
 };
 
