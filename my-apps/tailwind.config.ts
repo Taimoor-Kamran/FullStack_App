@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+export default {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -97,9 +97,9 @@ const config: Config = {
         gray: {
           100: "#CBD5E1",
         },
-        screens: {
-          xs: "480px",
-        },
+      },
+      screens: {
+        xs: "480px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -112,5 +112,4 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
-export default config;
+} satisfies Config;
