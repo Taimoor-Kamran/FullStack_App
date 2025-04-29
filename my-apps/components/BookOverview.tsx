@@ -37,7 +37,7 @@ const BookOverview = ({
             Category:{" "}
             <span className="font-semibold text-light-200">{genre}</span>
           </p>
-          <div className="flex flex-row gap-1">
+          <div className="flex flex-row gap-1"> 
             <Image src="/icons/star.svg" alt="star" width={22} height={22} />
             <span>{rating}</span>
           </div>
@@ -56,7 +56,7 @@ const BookOverview = ({
 
         <Button className="book-overview_btn">
           <Image src="/icons/book.svg" alt="book" width={20} height={20} />
-          <p className="font-bebas-neue">Read Now</p>
+          <p className="font-bebas-neue text-xl text-dark-100">Borrow</p>
         </Button>
       </div>
     </section>
