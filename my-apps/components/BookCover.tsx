@@ -25,8 +25,15 @@ const BookCover = ({
   coverUrl = "https://placehold.co/400x600.png",
 }: Props) => {
   return (
-    <div className={cn('relative transition-all duration-300', variantStyle=[variant])}></div>
-  )
+    <div
+      className={cn(
+        "relative transition-all duration-300",
+        variantStyle[variant],
+        className
+      )}
+      style={{ backgroundColor: coverColor }}
+    ></div>
+  );
 };
 
 export default BookCover;
