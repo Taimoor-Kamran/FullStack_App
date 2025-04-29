@@ -1,5 +1,7 @@
 import React from "react";
 
+type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide"
+
 const variantStyle: Record<BookCoverVariant, string> = {
   extraSmall: "book-cover_extra_small",
   small: "book-cover_small",
@@ -10,7 +12,7 @@ const variantStyle: Record<BookCoverVariant, string> = {
 
 interface Props {
   className?: string;
-  variant: "wide" | "small";
+  variant: BookCoverVariant;
   coverColor: string;
   coverUrl: string;
 }
