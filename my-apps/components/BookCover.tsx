@@ -23,7 +23,7 @@ const BookCover = ({
   className,
   variant = "regular",
   coverColor = "#012B48",
-  coverUrl = "https://placehold.co/400x600.png",
+  coverImage = "https://placehold.co/400x600.png",
 }: Props) => {
   return (
     <div
@@ -36,7 +36,7 @@ const BookCover = ({
     >
       BOOK SIDE SVG
       <div className="absolute z-10" style={{left: '12%', width: '87.5%', height: "88%"}}>
-        <Image src={coverUrl} alt="Book cover" fill className="rounded-sm object-fill"></Image>
+        <Image src={coverImage} alt="Book cover" fill className="rounded-sm object-fill"></Image>
 
       </div>
     </div>
