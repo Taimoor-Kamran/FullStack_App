@@ -17,7 +17,7 @@ interface Props {
   className?: string;
   variant?: BookCoverVariant;
   coverColor: string;
-  coverUrl: string;
+  coverImage: string;
 }
 
 const BookCover = ({
