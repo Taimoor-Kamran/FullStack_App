@@ -7,6 +7,7 @@ const BookCard = ({
   color,
   cover,
   isloanedBook = false,
+  
 }: Book) => {
   return <div>BookCard</div>;
 };
