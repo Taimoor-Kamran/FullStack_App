@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import BookCover from "@/components/BookCover";
 
 const BookCard = ({
@@ -9,12 +8,12 @@ const BookCard = ({
   color,
   cover,
   isloanedBook = false,
-
 }: Book) => (
-    <li>
-        <Link href={`/books/${id}`}>
-            <BookCover coverColor={color} coverImage={color}/>
-        </Link>
-    </li>
-)
+  <li>
+    <Link href={`/books/${id}`}>
+      <BookCover coverColor={color} coverImage={cover} />
+    </Link>
+  </li>
+);
+
 export default BookCard;
