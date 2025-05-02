@@ -10,12 +10,11 @@ const BookCard = ({
   cover,
   isloanedBook = false,
 
-}: Book) => {
-  <li>
-    <Link href={`/books/${id}`}>
-    <BookCover coverColor={color} coverImage={color}/>
-    </Link>
-  </li>
-};
-
+}: Book) => (
+    <li>
+        <Link href={`/books/${id}`}>
+            <BookCover coverColor={color} coverImage={color}/>
+        </Link>
+    </li>
+)
 export default BookCard;
