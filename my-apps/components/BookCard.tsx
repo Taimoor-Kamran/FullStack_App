@@ -11,7 +11,7 @@ const BookCard = ({
 }: Book) => (
   <li>
     <Link href={`/books/${id}`}>
-      <BookCover coverColor={color} coverImage={cover} />
+      <BookCover coverColor={color} coverImage={cover} variant="wide"/>
     </Link>
   </li>
 );
