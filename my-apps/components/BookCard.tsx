@@ -18,6 +18,12 @@ const BookCard = ({
         <p className="book-title">{title}</p>
             <p className="book-genre">{genre}</p>
       </div>
+
+      {isloanedBook && (
+        <div className="mt-3 w-full">
+            <div className="book-loaned"></div>
+        </div>
+      )}
     </Link>
   </li>
 );
