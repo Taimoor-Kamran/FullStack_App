@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BookCover from "@/components/BookCover";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const BookCard = ({
   id,
@@ -21,7 +22,9 @@ const BookCard = ({
 
       {isloanedBook && (
         <div className="mt-3 w-full">
-            <div className="book-loaned"></div>
+            <div className="book-loaned">
+                <Image src="/icons/calender.svg" alt="calender" width={18} height={18} className="object-contain"></Image>
+            </div>
         </div>
       )}
     </Link>
