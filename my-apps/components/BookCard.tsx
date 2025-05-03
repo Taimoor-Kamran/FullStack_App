@@ -2,6 +2,7 @@ import Link from "next/link";
 import BookCover from "@/components/BookCover";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 const BookCard = ({
   id,
@@ -35,6 +36,7 @@ const BookCard = ({
             />
             <p className="text-light-100">11 days left to return</p>
           </div>
+          <Button className="book-btn">Download receipt</Button>
         </div>
       )}
     </Link>
