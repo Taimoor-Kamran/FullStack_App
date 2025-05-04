@@ -6,7 +6,7 @@ const layout = ({ children }: { children: ReactNode }) => {
     <main className="auth-container">
       <section className="auth-form">
         <div className="auth-box">
-          <Image src="" alt=""></Image>
+          <Image src="/icons/logo.svg" alt="logo" width={37} height={37}></Image>
         </div>
       </section>
     </main>
