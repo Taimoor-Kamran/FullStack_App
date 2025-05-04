@@ -5,4 +5,5 @@ export const signUpSchema = z.object({
   email: z.string().email(),
   universityId: z.coerce.number(),
   universityCard: z.string().nonempty("University Card is required."),
+  password: z.string().min(8)
 });
