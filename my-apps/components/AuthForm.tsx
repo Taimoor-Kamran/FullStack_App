@@ -24,8 +24,10 @@ const AuthForm = <T extends FieldValues>({
 }: Props<T>) => {
     const form: UseFormReturn<T> = useForm({
         resolver: zodResolver(schema),
-        defaultValues: defaultValues as DefaultValues<T>,
-    })
+        defaultValues: defaultValues as DefaultValues<T>,   
+    });
+
+    const handleSubmit: SubmitHandler<T> = async (data) => {};
 }
 
 export default AuthForm;
