@@ -1,12 +1,13 @@
 "use client"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { DefaultValues, SubmitHandler, useForm, UseFormReturn } from "react-hook-form"
-import { Schema, z } from "zod"
+import { DefaultValues, FieldValues, SubmitHandler, useForm, UseFormReturn } from "react-hook-form"
+import { Schema, z, ZodType } from "zod"
 
 interface Props<T extends FieldValues> {
-    schema
+    schema : ZodType<T>;
+     defaultValues: T;
+     onSubmit: (data: T)
 }
-
 const AuthForm = ({ type, schema, defaultValues, onSubmit }: Props) => {
 
     const form: UseFormReturn = useForm({
