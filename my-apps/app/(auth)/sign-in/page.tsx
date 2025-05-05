@@ -6,7 +6,7 @@ const page = () => (
   <AuthForm
     type="SIGN_UP"
     schema={signUpSchema}
-    defaultValues={{ email: "", password: "" }}
+    defaultValues={{ email: "", password: "", fullName: "", universityId: 0}}
     onSubmit={() => {}}
   />
 );
