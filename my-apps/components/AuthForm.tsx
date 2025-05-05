@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   useForm,
@@ -7,27 +7,35 @@ import {
   UseFormReturn,
   DefaultValues,
 } from "react-hook-form";
-import { z, ZodType } from "zod";
+import { z } from "zod";
 
-interface Props<T extends FieldValues> {
-    schema : ZodType<T>;
-     defaultValues: T;
-     onSubmit: (data: T) => Promise<{success: boolean, error?: string}>
-     type: "SIGN_IN" | "SIGN_UP"
+// Import the schema directly inside this file instead of passing as a prop
+const signUpSchema = z.object({
+  fullName: z.string().min(3),
+  email: z.string().email(),
+  universityId: z.coerce.number(),
+  universityCard: z.string().nonempty("University Card is required."),
+});
+
+type SignUpFormData = z.infer<typeof signUpSchema>;
+
+interface Props {
+  defaultValues: SignUpFormData;
+  onSubmit: (data: SignUpFormData) => Promise<{ success: boolean; error?: string }>;
+  type: "SIGN_IN" | "SIGN_UP";
 }
 
-const AuthForm = <T extends FieldValues>({
-    type,
-    schema,
+const AuthForm = ({ type, defaultValues, onSubmit }: Props) => {
+  const form: UseFormReturn<SignUpFormData> = useForm({
+    resolver: zodResolver(signUpSchema),
     defaultValues,
-    onSubmit,
-}: Props<T>) => {
-    const form: UseFormReturn<T> = useForm({
-        resolver: zodResolver(schema),
-        defaultValues: defaultValues as DefaultValues<T>,   
-    });
+  });
 
-    const handleSubmit: SubmitHandler<T> = async (data) => {};
-}
+  const handleSubmit: SubmitHandler<SignUpFormData> = async (data) => {
+    await onSubmit(data);
+  };
+
+  return <div>AuthForm -- {type}</div>;
+};
 
 export default AuthForm;
