@@ -16,22 +16,16 @@ interface Props<T extends FieldValues> {
      type: "SIGN_IN" | "SIGN_UP"
 }
 
-
-const AuthForm = <T extends FieldValues> ({ type, schema, defaultValues, onSubmit }: Props<T>) => {
-
+const AuthForm = <T extends FieldValues>({
+    type,
+    schema,
+    defaultValues,
+    onSubmit,
+}: Props<T>) => {
     const form: UseFormReturn<T> = useForm({
         resolver: zodResolver(schema),
         defaultValues: defaultValues as DefaultValues<T>,
-      })
-     
-      // 2. Define a submit handler.
-
-    const handleSubmit: SubmitHandler<T> = async (data) => {}
-
-    }
-
-    return <div>AuthForm -- {type}</div>;
-};
-
+    })
+}
 
 export default AuthForm;
