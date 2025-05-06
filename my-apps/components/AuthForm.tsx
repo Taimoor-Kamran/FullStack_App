@@ -75,12 +75,9 @@ const AuthForm = <T extends FieldValues>({
                       <ImageUpload />
                     ) : (
                       <Input
-                        required
-                        type={
-                          FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]
-                        }
-                        {...field}
-                        className="form-input"
+                       required
+                       type={FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]}
+                       {...field} className="form-input"
                       />
                     )}
                   </FormControl>
