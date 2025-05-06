@@ -1,8 +1,9 @@
+"use client"
 import AuthForm from "@/components/AuthForm";
 import { signUpSchema } from "@/lib/Validations";
 import React from "react";
 
-const page = () => (
+const Page = () => (
   <AuthForm
     type="SIGN_UP"
     schema={signUpSchema}
@@ -17,4 +18,4 @@ const page = () => (
   />
 );
 
-export default page;
+export default Page;

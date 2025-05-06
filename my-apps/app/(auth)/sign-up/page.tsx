@@ -3,7 +3,7 @@ import AuthForm from "@/components/AuthForm";
 import { signInSchema } from "@/lib/Validations";
 import React from "react";
 
-const page = () => (
+const Page = () => (
   <AuthForm
     type="SIGN_IN"
     schema={signInSchema}
@@ -12,4 +12,4 @@ const page = () => (
   />
 );
 
-export default page;
+export default Page;
