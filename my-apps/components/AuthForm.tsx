@@ -34,6 +34,7 @@ const AuthForm = <T extends FieldValues>({
   defaultValues,
   onSubmit,
 }: Props<T>) => {
+  const isSignIn = type === "SIGN_IN"
   const form: UseFormReturn<T> = useForm({
     resolver: zodResolver(schema),
     defaultValues: defaultValues as DefaultValues<T>,
@@ -46,6 +47,9 @@ const AuthForm = <T extends FieldValues>({
       <h1 className="text-2xl font-semibold text-white">
         {isSignIn ? "Welcome back to Bookwise" : "Create your library account."}
       </h1>
+      <p className="text-light-100">
+            {isSignIn ? 'Access the vast collection of resources, and stay updated' : 'Please complete all fields and upload a valid university ID to gain access to the libary.'}
+      </p>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
