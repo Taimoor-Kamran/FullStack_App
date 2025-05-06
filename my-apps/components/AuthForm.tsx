@@ -42,7 +42,8 @@ const AuthForm = <T extends FieldValues>({
   const handleSubmit: SubmitHandler<T> = async (data) => {};
 
   return (
-    <Form {...form}>
+   <div>
+     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
@@ -63,6 +64,7 @@ const AuthForm = <T extends FieldValues>({
         <Button type="submit">Submit</Button>
       </form>
     </Form>
+   </div>
   );
 };
 
