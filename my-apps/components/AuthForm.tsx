@@ -71,6 +71,9 @@ const AuthForm = <T extends FieldValues>({
           <Button type="submit">Submit</Button>
         </form>
       </Form>
+      <p className="text-center text-base font-medium">
+            {isSignIn ? 'New to BookWise' : 'Already have an account?'}
+      </p>
     </div>
   );
 };
