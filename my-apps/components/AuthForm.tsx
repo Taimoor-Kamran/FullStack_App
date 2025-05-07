@@ -6,6 +6,7 @@ import {
   FieldValues,
   UseFormReturn,
   DefaultValues,
+  Path,
 } from "react-hook-form";
 import { z, ZodType } from "zod";
 
@@ -68,7 +69,7 @@ const AuthForm = <T extends FieldValues>({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="capitalize">
-                    {FIELD_NAMES[field.name as keyof FIELD_NAMES]}
+                    {FIELD_NAMES[field.name as keyof typeof FIELD_NAMES]}
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
