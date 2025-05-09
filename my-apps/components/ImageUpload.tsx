@@ -12,7 +12,7 @@ import {
 
 const authenticator = async () => {
   try {
-    // your async logic here
+    const response = await fetch();
   } catch (error: any) {
     throw new Error(`Authenticator request failed: ${error.message}`);
   }
