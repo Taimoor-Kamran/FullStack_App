@@ -1,3 +1,5 @@
+"use client"
+
 import {
   IKImage,
   IKUpload,
@@ -5,6 +7,15 @@ import {
   ImageKitProvider,
   ImageKitContext,
 } from "imagekitio-next";
+
+
+const authenticator = async () => {
+  try {
+
+  } catch (error) {
+    throw new Error(meesage : '')
+  }
+}
 
 const ImageUpload = () => {
   return <div>ImageUpload</div>;
