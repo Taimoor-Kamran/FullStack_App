@@ -9,13 +9,15 @@ import {
 } from "imagekitio-next";
 
 
+
 const authenticator = async () => {
   try {
-
-  } catch (error) {
-    throw new Error(meesage : '')
+    // your async logic here
+  } catch (error: any) {
+    throw new Error(`Authenticator request failed: ${error.message}`);
   }
-}
+};
+
 
 const ImageUpload = () => {
   return <div>ImageUpload</div>;
