@@ -1,5 +1,6 @@
 "use client"
 
+import config from "@/lib/config";
 import {
   IKImage,
   IKUpload,
@@ -10,9 +11,15 @@ import {
 
 
 
+
 const authenticator = async () => {
   try {
-    const response = await fetch();
+    const response = await fetch(`${config.env.apiEndPoint}/api/auth/imagekit`);
+
+    if(!response.ok){
+      const errorText = await response
+    }
+
   } catch (error: any) {
     throw new Error(`Authenticator request failed: ${error.message}`);
   }
