@@ -1,6 +1,7 @@
 "use client";
 
 import config from "@/lib/config";
+import ImageKit from "imagekit";
 import {
   IKImage,
   IKUpload,
@@ -8,6 +9,20 @@ import {
   ImageKitProvider,
   ImageKitContext,
 } from "imagekitio-next";
+
+
+const {
+  env: {
+    imagekit: { publicKey, privateKey, urlEndpoint },
+  },
+} = config;
+
+const imagekit = new ImageKit({
+  publicKey,
+  privateKey,
+  urlEndpoint,
+});
+
 
 const authenticator = async () => {
   try {
@@ -33,7 +48,9 @@ const authenticator = async () => {
 };
 
 const ImageUpload = () => {
-  return <ImageKitProvider></ImageKitProvider>
+  return <ImageKitProvider publicKey={}>
+
+  </ImageKitProvider>
 };
 
 export default ImageUpload;
