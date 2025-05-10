@@ -33,7 +33,7 @@ const authenticator = async () => {
 };
 
 const ImageUpload = () => {
-  return <div>ImageUpload</div>;
+  return <ImageKitProvider></ImageKitProvider>
 };
 
 export default ImageUpload;
