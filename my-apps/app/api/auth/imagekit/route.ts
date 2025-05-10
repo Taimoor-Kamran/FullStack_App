@@ -3,12 +3,12 @@ import ImageKit from "imagekit";
 
 const {
   env: {
-    imagekit: { publickey, privateKey, urlEndpoint },
+    imagekit: { publicKey, privateKey, urlEndpoint },
   },
 } = config;
 
 const imagekit = new ImageKit({
-  publicKey: publickey,
-  privateKey: privateKey,
-  urlEndpoint: urlEndpoint,
+  publicKey,
+  privateKey,
+  urlEndpoint,
 });
