@@ -18,6 +18,8 @@ const authenticator = async () => {
 
     if(!response.ok){
       const errorText = await response.text();
+
+      throw new Error(`Request failed with status ${response.status} ${errorText}`)
     }
 
   } catch (error: any) {
