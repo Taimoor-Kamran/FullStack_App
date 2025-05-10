@@ -13,15 +13,10 @@ import {
 
 const {
   env: {
-    imagekit: { publicKey, privateKey, urlEndpoint },
+    imagekit: { publicKey, urlEndpoint },
   },
 } = config;
 
-const imagekit = new ImageKit({
-  publicKey,
-  privateKey,
-  urlEndpoint,
-});
 
 
 const authenticator = async () => {
@@ -48,7 +43,7 @@ const authenticator = async () => {
 };
 
 const ImageUpload = () => {
-  return <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint}> 
+  return <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}> 
 
   </ImageKitProvider>
 };
