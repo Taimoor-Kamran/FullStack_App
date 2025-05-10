@@ -48,7 +48,7 @@ const authenticator = async () => {
 };
 
 const ImageUpload = () => {
-  return <ImageKitProvider publicKey={publicKey}>
+  return <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint}> 
 
   </ImageKitProvider>
 };
