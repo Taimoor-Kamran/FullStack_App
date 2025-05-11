@@ -11,6 +11,7 @@ import {
 } from "imagekitio-next";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { FilePath } from "tailwindcss/types/config";
 
 const {
   env: {
@@ -39,12 +40,18 @@ const authenticator = async () => {
   }
 };
 
-const ImageUpload = () => {
+const ImageUpload = ({
+  onFileChange,
+}: {
+  onFileChange: (FilePath: string) => void;
+}) => {
   const IKUploadRef = useRef(null);
   const [file, setFile] = useState<{ filePath: string } | null>(null);
 
   const onError = () => {};
-  const onSuccess = () => {};
+  const onSuccess = (res: any) => {
+    setFile(res);
+  };
 
   return (
     <ImageKitProvider
@@ -60,14 +67,17 @@ const ImageUpload = () => {
         fileName="test-Upload.png"
       />
 
-      <button className="upload-btn" onClick={(e) => {
-        e.preventDefault();
+      <button
+        className="upload-btn"
+        onClick={(e) => {
+          e.preventDefault();
 
-        if(IKUploadRef.current){
-          // @ts-ignore
-          IKUploadRef.current?.click()
-        }
-      }}>
+          if (IKUploadRef.current) {
+            // @ts-ignore
+            IKUploadRef.current?.click();
+          }
+        }}
+      >
         <Image
           src="/icons/upload.svg"
           alt="upload.png"
@@ -79,7 +89,14 @@ const ImageUpload = () => {
         {file && <p className="upload-filename">{file.filePath}</p>}
       </button>
 
-      {file && ( <IKImage  alt={file.filePath} path={file.filePath} width={500} height={500}/> )}
+      {file && (
+        <IKImage
+          alt={file.filePath}
+          path={file.filePath}
+          width={500}
+          height={500}
+        />
+      )}
     </ImageKitProvider>
   );
 };
