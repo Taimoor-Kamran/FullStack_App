@@ -48,9 +48,13 @@ const ImageUpload = ({
   const IKUploadRef = useRef(null);
   const [file, setFile] = useState<{ filePath: string } | null>(null);
 
-  const onError = () => {};
+  const onError = (error: any) => {
+    console.log(error);
+  };
+
   const onSuccess = (res: any) => {
     setFile(res);
+    onFileChange(res.filePath);
   };
 
   return (
