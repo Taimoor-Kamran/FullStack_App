@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "@/hooks/use-toast";
 import config from "@/lib/config";
 import ImageKit from "imagekit";
 import {
@@ -55,6 +56,11 @@ const ImageUpload = ({
   const onSuccess = (res: any) => {
     setFile(res);
     onFileChange(res.filePath);
+
+    toast({
+      title: "Scheduled: Catch up",
+      description: "Friday, February 10, 2023 at 5:57 PM",
+    });
   };
 
   return (
