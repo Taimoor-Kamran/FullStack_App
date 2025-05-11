@@ -42,8 +42,8 @@ const ImageUpload = () => {
   const IKUploadRef = useRef(null);
   const [file, setFile] = useState<{ filePath: string } | null>(null);
 
-  const onError = () => {}
-  const onSuccess = () => {}
+  const onError = () => {};
+  const onSuccess = () => {};
 
   return (
     <ImageKitProvider
@@ -51,7 +51,13 @@ const ImageUpload = () => {
       urlEndpoint={urlEndpoint}
       authenticator={authenticator}
     >
-      <IKUpload className="hidden" ref={IKUploadRef} onError={onError} onSuccess={onSuccess}/>
+      <IKUpload
+        className="hidden"
+        ref={IKUploadRef}
+        onError={onError}
+        onSuccess={onSuccess}
+        fileName="test-Upload.png"
+      />
     </ImageKitProvider>
   );
 };
