@@ -60,7 +60,14 @@ const ImageUpload = () => {
         fileName="test-Upload.png"
       />
 
-      <button className="upload-btn">
+      <button className="upload-btn" onClick={(e) => {
+        e.preventDefault();
+
+        if(IKUploadRef.current){
+          // @ts-ignore
+          IKUploadRef.current?.click()
+        }
+      }}>
         <Image
           src="/icons/upload.svg"
           alt="upload.png"
