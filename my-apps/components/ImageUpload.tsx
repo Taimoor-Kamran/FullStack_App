@@ -1,6 +1,6 @@
 "use client";
 
-import { toast, useToast } from "@/hooks/use-toast"
+import { toast, useToast } from "@/hooks/use-toast";
 import config from "@/lib/config";
 import ImageKit from "imagekit";
 import {
