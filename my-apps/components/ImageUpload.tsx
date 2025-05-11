@@ -55,6 +55,7 @@ const ImageUpload = ({
     toast({
       title: "Image Uploaded failed.",
       description: "Your image could not be uploaded. Please try again",
+      variant: "destructive"
     })
   };
 
