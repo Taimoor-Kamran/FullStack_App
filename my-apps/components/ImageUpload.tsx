@@ -9,15 +9,13 @@ import {
   ImageKitProvider,
   ImageKitContext,
 } from "imagekitio-next";
-
+import { useRef, useState } from "react";
 
 const {
   env: {
     imagekit: { publicKey, urlEndpoint },
   },
 } = config;
-
-
 
 const authenticator = async () => {
   try {
@@ -31,21 +29,28 @@ const authenticator = async () => {
       );
     }
 
-    const data = await response.json()
-    const { signature, expire, token} = data
-    
-    return { token, expire, signature }
+    const data = await response.json();
+    const { signature, expire, token } = data;
 
-
+    return { token, expire, signature };
   } catch (error: any) {
     throw new Error(`Authenticator request failed: ${error.message}`);
   }
 };
 
 const ImageUpload = () => {
-  return <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}> 
+  const IKUploadRef = useRef(null);
+  const [file, setFile] = useState<{ filePath: string } | null>(null);
 
-  </ImageKitProvider>
+  return (
+    <ImageKitProvider
+      publicKey={publicKey}
+      urlEndpoint={urlEndpoint}
+      authenticator={authenticator}
+    >
+      <IKUpload />
+    </ImageKitProvider>
+  );
 };
 
 export default ImageUpload;
