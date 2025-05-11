@@ -1,6 +1,6 @@
 "use client";
 
-import { toast } from "@/hooks/use-toast";
+import { toast, useToast } from "@/hooks/use-toast"
 import config from "@/lib/config";
 import ImageKit from "imagekit";
 import {
@@ -55,8 +55,8 @@ const ImageUpload = ({
     toast({
       title: "Image Uploaded failed.",
       description: "Your image could not be uploaded. Please try again",
-      variant: "destructive"
-    })
+      variant: "destructive",
+    });
   };
 
   const onSuccess = (res: any) => {
@@ -65,7 +65,7 @@ const ImageUpload = ({
 
     toast({
       title: "Image Uploaded Successfully.",
-      description: `${res.filePath} uploaded successfully`,
+      description: `${res.filePath} uploaded successfully!`,
     });
   };
 
