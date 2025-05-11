@@ -9,6 +9,7 @@ import {
   ImageKitProvider,
   ImageKitContext,
 } from "imagekitio-next";
+import Image from "next/image";
 import { useRef, useState } from "react";
 
 const {
@@ -58,6 +59,16 @@ const ImageUpload = () => {
         onSuccess={onSuccess}
         fileName="test-Upload.png"
       />
+
+      <button className="upload-btn">
+        <Image
+          src="/icons/upload.svg"
+          alt="upload.png"
+          width={20}
+          height={20}
+          className="object-contain"
+        ></Image>
+      </button>
     </ImageKitProvider>
   );
 };
