@@ -51,6 +51,11 @@ const ImageUpload = ({
 
   const onError = (error: any) => {
     console.log(error);
+
+    toast({
+      title: "Image Uploaded failed.",
+      description: "Your image could not be uploaded. Please try again",
+    })
   };
 
   const onSuccess = (res: any) => {
