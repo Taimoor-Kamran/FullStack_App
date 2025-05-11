@@ -67,7 +67,8 @@ const ImageUpload = () => {
           width={20}
           height={20}
           className="object-contain"
-        ></Image>
+        />
+        <p>Upload a File</p>
       </button>
     </ImageKitProvider>
   );
