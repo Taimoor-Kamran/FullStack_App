@@ -69,7 +69,10 @@ const ImageUpload = () => {
           className="object-contain"
         />
         <p className="text-base text-light-100">Upload a File</p>
+        {file && <p className="upload-filename">{file.filePath}</p>}
       </button>
+
+      {file && ( <IKImage  alt={file.filePath} path={file.filePath} width={500} height={500}/> )}
     </ImageKitProvider>
   );
 };
