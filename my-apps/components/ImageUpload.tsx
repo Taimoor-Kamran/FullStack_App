@@ -48,7 +48,7 @@ const ImageUpload = () => {
       urlEndpoint={urlEndpoint}
       authenticator={authenticator}
     >
-      <IKUpload />
+      <IKUpload className="hidden"/>
     </ImageKitProvider>
   );
 };
