@@ -6,6 +6,7 @@ import {
   boolean,
   pgTable,
   pgEnum,
+  date,
 } from "drizzle-orm/pg-core";
 
 export const STATUS_ENUM = pgEnum("status", ["PENDING", "APROVED", "REJECTED"]);
@@ -25,4 +26,6 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
   universityCard: text("university_card").notNull(),
   status: STATUS_ENUM("status").default("PENDING"),
+  role: ROLE_ENUM("role").default("USER"),
+  lastActivityDate: date("last_activity_data").defaultNow(),
 });
