@@ -7,6 +7,7 @@ import {
   pgTable,
   pgEnum,
   date,
+  timestamp
 } from "drizzle-orm/pg-core";
 
 export const STATUS_ENUM = pgEnum("status", ["PENDING", "APROVED", "REJECTED"]);
@@ -28,4 +29,8 @@ export const users = pgTable("users", {
   status: STATUS_ENUM("status").default("PENDING"),
   role: ROLE_ENUM("role").default("USER"),
   lastActivityDate: date("last_activity_data").defaultNow(),
-});
+  createdAt: timestamp('created_at', {
+    withTimezone: true,
+  }).defaultNow()
+})
+
