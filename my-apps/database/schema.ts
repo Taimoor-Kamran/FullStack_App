@@ -1,5 +1,5 @@
-import { integer, text, boolean, pgTable } from "drizzle-orm/pg-core";
+import {uuid, integer, text, boolean, pgTable, } from "drizzle-orm/pg-core";
 
 export const todo = pgTable("todo", {
-  id: integer("id").primaryKey(),
+  id: uuid('id').notNull().primaryKey()
 });
