@@ -1,5 +1,5 @@
 import NextAuth, { User } from "next-auth";
-import {compare} from "bcryptjs"
+import { compare } from "bcryptjs";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { users } from "./database/schema";
 import { eq } from "drizzle-orm";
@@ -27,27 +27,26 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           credentials.password.toString(),
           user[0].password
         );
-        if(isPasswordValid) return null
+        if (isPasswordValid) return null;
 
-        return{
-            id: user[0].id.toString(),
-            email: user[0].email,
-            name: user[0].fullName
-        } as User
+        return {
+          id: user[0].id.toString(),
+          email: user[0].email,
+          name: user[0].fullName,
+        } as User;
       },
     }),
   ],
   pages: {
-    signIn: '/sign-in',
+    signIn: "/sign-in",
   },
   callbacks: {
-    jwt({token, user}){
-      if(user){
-        token.id = user.id,
-        token.name = user.name
+    jwt({ token, user }) {
+      if (user) {
+        (token.id = user.id), (token.name = user.name);
       }
 
-      return token
-    }
-  }
+      return token;
+    },
+  },
 });
