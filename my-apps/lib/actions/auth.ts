@@ -21,12 +21,12 @@ const signUp = async (params: AuthCredentials) => {
   const hashedPassword = await hash(password, 10);
   try {
     await db.insert(users).values({
-        fullName,
-        email,
-        universityId,
-        password: hashedPassword
-        
-    })
+      fullName,
+      email,
+      universityId,
+      password: hashedPassword,
+      universityCard,
+    });
   } catch (error) {
     console.log(error, "Signup error");
     return { success: false, error: "Signup error" };
