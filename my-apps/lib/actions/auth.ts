@@ -6,7 +6,7 @@ import { users } from "@/database/schema";
 import { hash } from "bcryptjs";
 import { eq } from "drizzle-orm";
 
-const signUp = async (params: AuthCredentials) => {
+export const signUp = async (params: AuthCredentials) => {
   const { fullName, email, universityId, password, universityCard } = params;
 
   const existingUser = await db
@@ -38,7 +38,7 @@ const signUp = async (params: AuthCredentials) => {
   }
 };
 
-const signInWithCredentials = async (
+export const signInWithCredentials = async (
   params: Pick<AuthCredentials, "email" | "password">
 ) => {
   const { email, password } = params;
@@ -52,6 +52,7 @@ const signInWithCredentials = async (
     if (result?.error) {
       return { success: false, error: result.error };
     }
+    return {success : true}
   } catch (error) {
     console.log(error, "Signin error");
     return { success: false, error: "Signin error" };
