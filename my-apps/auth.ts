@@ -1,6 +1,8 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials" 
 import { users } from "./database/schema"
+import { eq } from "drizzle-orm"
+import { db } from "./database/drizzle"
 
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -15,7 +17,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const user = await db
             .select()
             .from(users)
+            .where(eq(users.email, credentials.email.toString()))
+            .limit(1)
 
+            if(user.length === 0) return null
     }
   })],
 })
