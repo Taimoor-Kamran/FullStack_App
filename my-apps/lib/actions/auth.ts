@@ -1,5 +1,6 @@
 "use server";
 
+import { signIn } from "@/auth";
 import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
 import { hash } from "bcryptjs";
@@ -28,7 +29,7 @@ const signUp = async (params: AuthCredentials) => {
       universityCard,
     });
 
-    await signInWithCredentials({email, password})
+    await signInWithCredentials({ email, password });
 
     return { success: true };
   } catch (error) {
@@ -37,6 +38,22 @@ const signUp = async (params: AuthCredentials) => {
   }
 };
 
-const signInWithCredentials = async (params: AuthCredentials) => {
+const signInWithCredentials = async (
+  params: Pick<AuthCredentials, "email" | "password">
+) => {
+  const { email, password } = params;
 
-}
+  try {
+    const result = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    if (result?.error) {
+      return { success: false, error: result.error };
+    }
+  } catch (error) {
+    console.log(error, "Signin error");
+    return { success: false, error: "Signin error" };
+  }
+};
