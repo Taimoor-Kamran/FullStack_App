@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { User } from "next-auth";
 import {compare} from "bcryptjs"
 import CredentialsProvider from "next-auth/providers/credentials";
 import { users } from "./database/schema";
@@ -33,7 +33,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             id: user[0].id.toString(),
             email: user[0].email,
             name: user[0].fullName
-        }
+        } as User
       },
     }),
   ],
