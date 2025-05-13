@@ -28,7 +28,7 @@ const signUp = async (params: AuthCredentials) => {
       universityCard,
     });
 
-    // await signInCredentials({email, password})
+    await signInWithCredentials({email, password})
 
     return { success: true };
   } catch (error) {
@@ -36,3 +36,7 @@ const signUp = async (params: AuthCredentials) => {
     return { success: false, error: "Signup error" };
   }
 };
+
+const signInWithCredentials = async (params: AuthCredentials) => {
+
+}
