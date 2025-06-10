@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 const layout = async ({ children }: { children: ReactNode }) => {
   const session = await auth()
 
-  if(!session) redirect("/")
+  if(!session) redirect("/sign-in")
 
   return (
     <main className="root-container">
