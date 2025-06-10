@@ -3,10 +3,10 @@ import Header from "@/components/Header";
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";
 
-const layout = as ({ children }: { children: ReactNode }) => {
+const layout = async ({ children }: { children: ReactNode }) => {
   const session = await auth()
 
-
+  if(!session) redirect("/")
 
   return (
     <main className="root-container">
