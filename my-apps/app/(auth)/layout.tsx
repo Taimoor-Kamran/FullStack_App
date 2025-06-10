@@ -1,7 +1,11 @@
 import React, { ReactNode } from "react";
 import Image from "next/image";
+import { auth } from "@/auth";
 
 const Layout = ({ children }: { children: ReactNode }) => {
+
+  const session = await auth();
+
   return (
     <main className="auth-container">
       <section className="auth-form">
