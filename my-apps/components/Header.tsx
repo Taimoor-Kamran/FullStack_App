@@ -4,6 +4,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const Header = () => {
   const pathname = usePathname();
@@ -27,7 +28,9 @@ const Header = () => {
           </Link>
         </li>
         <li>
+          <Link href="/my-profile">
           
+          </Link>
         </li>
       </ul>
     </header>
