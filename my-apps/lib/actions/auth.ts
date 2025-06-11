@@ -15,7 +15,7 @@ export const signUp = async (params: AuthCredentials) => {
   const ip = (await headers()).get('x-forwarded-for') || '127.0.0.1';
   const {success} = await ratelimit.limit(ip);
 
-  if(!success) return redirect
+  if(!success) return redirect()
 
   const existingUser = await db
     .select()
