@@ -1,6 +1,7 @@
 "use server";
 
 import { signIn } from "@/auth";
+import ratelimit from "@/components/ratelimit";
 import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
 import { hash } from "bcryptjs";
@@ -11,6 +12,7 @@ export const signUp = async (params: AuthCredentials) => {
   const { fullName, email, universityId, password, universityCard } = params;
 
   const ip = (await headers()).get('x-forwarded-for') || '127.0.0.1';
+  const {} = await ratelimit.limit(ip);
 
   const existingUser = await db
     .select()
