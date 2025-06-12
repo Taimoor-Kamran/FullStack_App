@@ -1,7 +1,7 @@
 "use server";
 
 import { signIn } from "@/auth";
-import ratelimit from "@/components/ratelimit";
+import ratelimit from "@/lib/ratelimit";
 import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
 import { hash } from "bcryptjs";
@@ -12,10 +12,10 @@ import { redirect } from "next/navigation";
 export const signUp = async (params: AuthCredentials) => {
   const { fullName, email, universityId, password, universityCard } = params;
 
-  const ip = (await headers()).get('x-forwarded-for') || '127.0.0.1';
+  const ip = (await headers()).get("x-forwarded-for") || "127.0.0.1"
   const {success} = await ratelimit.limit(ip);
 
-  if(!success) return redirect('/too-fast')
+  if(!success) return redirect("/too-fast")
 
   const existingUser = await db
     .select()
@@ -51,11 +51,11 @@ export const signInWithCredentials = async (
 ) => {
   const { email, password } = params;
 
-  const ip = (await headers()).get('x-forwarded-for') || '127.0.0.1';
+ const ip = (await headers()).get("x-forwarded-for") || "127.0.0.1"
   const {success} = await ratelimit.limit(ip);
 
   if(!success) return redirect("/too-fast")
-
+    
   try {
     const result = await signIn("credentials", {
       email,
